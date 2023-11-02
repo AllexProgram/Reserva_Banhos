@@ -1,0 +1,28 @@
+<!--Se não  carregar o load bootstrap5 dará um erro do tipo: ""
+    Tag de bloco inválido na linha 15: 'bootstrap_form', esperado 'endif'.
+     Você esqueceu de registrar ou carregar esta tag?-->
+
+
+{% extends "paginaModelo.html" %}
+
+{% load bootstrap5 %}
+
+{% block conteudo  %}
+
+{% if sucesso %}
+<p class="alert alert-success">Sua reserva foi realizada com sucesso!</p>
+{% else %}
+<div class="row m-2">
+  <div class="col-md-6">
+    <form action="" method="post">
+      
+      {% csrf_token %}    
+      {% bootstrap_form formulario %} 
+      <hr>
+      <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+
+  </div>
+    {% endif %}
+{% endblock  %}
+
